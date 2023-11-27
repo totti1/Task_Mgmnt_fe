@@ -4,7 +4,9 @@ import * as React from 'react';
 
 interface PasswordInterface{
     label: string,
-    onChange?: React.ChangeEventHandler<HTMLInputElement>
+    onChange?: React.ChangeEventHandler<HTMLInputElement>,
+    value:string,
+    passwordInputName?:string
 }
 
 export default function PasswordInput(props: PasswordInterface){
@@ -17,9 +19,8 @@ export default function PasswordInput(props: PasswordInterface){
   };
     return (
         <FormControl sx={{ marginTop: 1 }} variant="filled"fullWidth>
-          <InputLabel htmlFor="filled-adornment-password">{props.label}</InputLabel>
+          <InputLabel>{props.label}</InputLabel>
           <FilledInput
-            id="filled-adornment-password"
             type={showPassword ? 'text' : 'password'}
             endAdornment={
               <InputAdornment position="end">
@@ -34,6 +35,8 @@ export default function PasswordInput(props: PasswordInterface){
               </InputAdornment>
             }
             onChange={props.onChange}
+            value={props.value}
+            name={props.passwordInputName}
           />
         </FormControl>
     )

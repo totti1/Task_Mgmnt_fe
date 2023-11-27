@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { User } from '../mock/UserInterface';
 
 export const signupUser = createAsyncThunk(
     'users/signupUser',
-    async (user: any, thunkAPI) => {
+    async (user: User, thunkAPI) => {
         const { email, password, password2 } = user
         try {
             const response = await fetch(
